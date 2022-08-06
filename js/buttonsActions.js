@@ -15,7 +15,7 @@ function init () {
     for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
         escuchaOpcionesRadio[i].onclick = function() {
             let spanInputsSelect = document.getElementById ("botones-requisito-seleccion");
-            spanInputsSelect.innerHTML = "<button id = \"seleccionar-mascota-jugador\" onclick = seleccionarMascotaJugador() + seleccionarMascotaPc() >Avanzar</button><button id = \"seleccionar-mascota-jugador-aleatorio\" onclick = seleccionarMascotaJugadorAleatorio()>Aleatorio</button>";  
+            spanInputsSelect.innerHTML = "<button type = \"button\" id = \"seleccionar-mascota-jugador\" onclick = seleccionarMascotaJugador() + seleccionarMascotaPc() class = \"btn btn-primary\">Select</button><button type = \"button\" id = \"seleccionar-mascota-jugador-aleatorio\" class = \"btn btn-secondary btn-sm\">Random</button>" 
         }
     }
     //-----------------------
@@ -90,7 +90,7 @@ function seleccionarMascotaPc () {
     validate++;
     if (validate == 1) {
         let spanBotonAtaque = document.getElementById ("botones-para-atacar");
-        spanBotonAtaque.innerHTML = "<button id = \"boton-fuego\" onclick = fuego()> Fuego 🔥 atacar</button><button id = \"boton-agua\" onclick = agua()> Agua 💧</button><button id = \"boton-tierra\" onclick = tierra()> Tierra ☘</button><br><br><br>";
+        spanBotonAtaque.innerHTML = "<button id = \"boton-fuego\" onclick = fuego() class = \"btn btn-outline-danger\"> Fuego 🔥 </button><button id = \"boton-agua\" onclick = agua() class = \"btn btn-outline-info\"> Agua 💧</button><button id = \"boton-tierra\" onclick = tierra() class = \"btn btn-outline-success\"> Tierra ☘</button><br><br><br>";
     }           
 } 
     
@@ -185,7 +185,7 @@ function trampa () {
     //console.log (i);
     if (i % 2 || i == 0) {
         let trampa = document.getElementById ("trampa");
-        trampa.innerHTML = "<p> Aquí se generará la elección de la PC de su mascota. <br> </p> <p> <button id = " + "boton-pc" + ">Elegir por la pc.</button><br><br></p>";
+        trampa.innerHTML = "<p> Aquí se generará la elección de la PC de su mascota. <br> </p> <p> <button id = \"boton-pc\" class = \"btn btn-outline-dark\">Elegir por la pc.</button><br><br></p>"
     } else {
         let trampa = document.getElementById ("trampa");
         trampa.innerHTML = "";
@@ -211,7 +211,7 @@ function infoMascotas () {
 }
 
 function crearMensajeResultado () {
-    let esperaResultadoAleatorio = random (min, (max * 1000))
+    let esperaResultadoAleatorio = random ((min * 5000), (max * 1000))
     for (wait = 0; wait <= esperaResultadoAleatorio; wait++) {
         if (wait == esperaResultadoAleatorio) {
             alert ("funciona");
