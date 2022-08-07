@@ -286,15 +286,7 @@ function combateDeElementos () {
     if (ataqueElementoDeLaPc == ataqueElementoJugador) {
         ResultadoDeAtaques = `EMPATE 😮😮😮😮`;
         crearMensajeResultado();
-    } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) {
-        ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
-        crearMensajeResultado();
-        //triunfos++
-    } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`) {
-        ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
-        crearMensajeResultado();
-        //triunfos++
-    } else if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) {
+    } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘` || ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧` || ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`) {
         ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
         crearMensajeResultado();
         //triunfos++
