@@ -2,7 +2,7 @@ function random (minimo, maximo) {
     return Math.floor (Math.random() * (maximo - minimo + 1) + minimo);
 }
 
-export const mascotaData = [{
+const mascotaData = [{
     "name": "Mascota 1",
     "element": "Agua",
     "atk": random (10, 15),
