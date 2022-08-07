@@ -169,7 +169,7 @@ function ataqueDeLaPc () {
         spanElementosDeLaPc.innerHTML = `Elemento de Tierra ☘`;
         ataqueElementoDeLaPc = `Tierra ☘`;
     }
-    crearMensajeResultado ();
+    combateDeElementos ();
 }
     
 function fuego () {
@@ -269,13 +269,42 @@ function crearMensajeResultado () {
             let parrafo = document.createElement (`p`);
             parrafo.innerHTML = `-GANASTE 🎉🎉🎈🥳🎉 tu mascota atacó con....`
             seccionMensajes.appendChild(parrafo);
-            alert (`funciona`);
         }
         //console.log (wait);
     }
 }
 //----------------------------
-    
+
+
+//COMBATE-------------------------
+function combateDeElementos () {
+    if (ataqueElementoDeLaPc == ataqueElementoJugador) {
+        ResultadoDeAtaques = `EMPATE 😮😮😮😮`;
+        crearMensajeResultado();
+    } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) {
+
+        ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
+        crearMensajeResultado();
+        //triunfos++
+    } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`) {
+
+        ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
+        crearMensajeResultado();
+        //triunfos++
+    } else if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) {
+
+        ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
+        crearMensajeResultado();
+        //triunfos++
+    } else {
+;
+        ResultadoDeAtaques = `PERDISTE 😣😣😣😣😣`;
+        crearMensajeResultado();
+        //perdidas++
+    }
+}
+
+let ResultadoDeAtaques;
 
     
 window.addEventListener (`load`, init);
