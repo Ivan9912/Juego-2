@@ -1,6 +1,6 @@
 function init () {
-        
-    let botonParaMascotaJugador = document.getElementById ("seleccionar-mascota-jugador");
+            
+    let botonParaMascotaJugador = document.getElementById (`seleccionar-mascota-jugador`);
     botonParaMascotaJugador.addEventListener (`click`, seleccionarMascotaJugador);  
 
     let botonParaMascotaJugadorAleatorio = document.getElementById (`seleccionar-mascota-jugador-aleatorio`);
@@ -8,9 +8,9 @@ function init () {
 
     let spanfechaDeHoy = document.getElementById (`fecha-de-hoy`);
     const fechaHoy = new Date ();
-    spanfechaDeHoy.innerHTML = `Fecha de hoy: ${fechaHoy.toDateString()} ${fechaHoy.toLocaleTimeString()} Hs.`;
+    spanfechaDeHoy.innerHTML = (`Fecha de hoy: ${fechaHoy.toDateString()} ${fechaHoy.toLocaleTimeString()} Hs.`);
 
-    //-----------------------
+
     let escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
     
     for(let i = 0, max = escuchaOpcionesRadio.length; i < max; i++) {
@@ -40,8 +40,8 @@ function init () {
             //console.log (chequeo);
         }
     }
-    //-----------------------
-}
+
+};
 
 function seleccionarMascotaJugador () {
     let input1 = document.getElementById (`mascota-1`);
@@ -119,6 +119,7 @@ function seleccionarMascotaPc () {
         <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info"> Agua 💧</button>
         <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success"> Tierra ☘</button>
         <br><br><br>`;
+        //disabled
     }           
 } 
     
@@ -169,33 +170,38 @@ function ataqueDeLaPc () {
         spanElementosDeLaPc.innerHTML = `Elemento de Tierra ☘`;
         ataqueElementoDeLaPc = `Tierra ☘`;
     }
-    combateDeElementos ();
+    combateDeElementos();
 }
-    
+
 function fuego () {
     let spanElementosJugador = document.getElementById (`span-elementos-jugador`);
-    spanElementosJugador.innerHTML = `Elemento de Fuego 🔥`;
-    ataqueJugador = `Fuego 🔥`;
+    spanElementosJugador.innerHTML = `Elemento de Fuego 🔥` ;
+    ataqueElementoJugador = `Fuego 🔥`;
     ataqueDeLaPc ();
 }
-    
+
 function agua () {
     let spanElementosJugador = document.getElementById (`span-elementos-jugador`);
-    spanElementosJugador.innerHTML = `Elemento de Agua 💧`;
-    ataqueJugador = `Agua 💧`;
+    spanElementosJugador.innerHTML = `Elemento de Agua 💧` ;
+    ataqueElementoJugador = `Agua 💧`;
     ataqueDeLaPc ();     
 }
-    
+
 function tierra () {
     let spanElementosJugador = document.getElementById (`span-elementos-jugador`);
-    spanElementosJugador.innerHTML = "Elemento de Tierra ☘" ;
-    ataqueJugador = `Tierra ☘`;
+    spanElementosJugador.innerHTML = `Elemento de Tierra ☘` ;
+    ataqueElementoJugador = `Tierra ☘`;
     ataqueDeLaPc ();
-}
+    }
 
 function random (minimo, maximo) {
     return Math.floor (Math.random() * (maximo - minimo + 1) + minimo);
 }
+
+
+
+
+
 
 //----------------------------
 function seleccionarMascotaPcTrampa () {
@@ -206,6 +212,7 @@ function seleccionarMascotaPcTrampa () {
     let aleatorioMascotaPc = random (min, mascotaElegidaPorPc.length);
     if (mascotaElegidaPorPc[aleatorioMascotaPc] != undefined) {
         spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[aleatorioMascotaPc];
+        //console.table (mascotaElegidaPorPc); //MIRAR ACA se itera en mascotaAlea objetos y se seleccionan aleatoriamente...
     }
     alert (`
     Este botón se desarrolló para probar las posibles variables de 
@@ -213,7 +220,6 @@ function seleccionarMascotaPcTrampa () {
     Sí da "Undefined" tomará otro valor al azar.
     Éste es tú valor que se cambiará:  "${mascotaElegidaPorPc[aleatorioMascotaPc]}"`);
 }
-
 function trampa () {
     i++;
     //console.log (i);
@@ -234,7 +240,7 @@ function trampa () {
     }
     return i
 }
-    
+
 function infoMascotas () {
     //console.log (index);
     if (index % 2 || index == 1) {
@@ -260,6 +266,7 @@ function infoMascotas () {
     index++;
     return index
 }
+//----------------------------
 
 function crearMensajeResultado () {
     let esperaResultadoAleatorio = random (min, (max * 1000))
@@ -267,14 +274,12 @@ function crearMensajeResultado () {
         if (wait == esperaResultadoAleatorio) {
             let seccionMensajes = document.getElementById (`mensajes`);
             let parrafo = document.createElement (`p`);
-            parrafo.innerHTML = `-GANASTE 🎉🎉🎈🥳🎉 tu mascota atacó con....`
+            parrafo.innerHTML = `${ResultadoDeAtaques} Tú mascota atacó con.... ${ataqueElementoJugador}`;
             seccionMensajes.appendChild(parrafo);
         }
         //console.log (wait);
     }
 }
-//----------------------------
-
 
 //COMBATE-------------------------
 function combateDeElementos () {
@@ -306,14 +311,15 @@ function combateDeElementos () {
 
 let ResultadoDeAtaques;
 
-    
+
 window.addEventListener (`load`, init);
+
 let index = 0;
 let i = 0;
 let min = 1;
 let max = 6;
 let seleccion;
-let ataqueJugador;
+let ataqueElementoJugador;
 let ataqueElementoDeLaPc;
 let validate = 0;
 const mascotaElegidaPorPc = [`Mascota 1`];
@@ -321,6 +327,7 @@ const mascotaElegidaPorJugador = [`Mascota 1`];
 
 
 
+//.join es metodo para unir arrays!!.
 //-----------------------parte de objetos mascotas------------------------
 
 class Mascotas{
