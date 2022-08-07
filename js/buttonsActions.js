@@ -280,29 +280,25 @@ function crearMensajeResultado () {
         //console.log (wait);
     }
 }
-
+// se podria eleiminar la variable ResultadoDeAtaques y colocarlo como parametro de crearMensajeResultado con el valor de cada condicional (ganar, perder o empatar).
 //COMBATE-------------------------
 function combateDeElementos () {
     if (ataqueElementoDeLaPc == ataqueElementoJugador) {
         ResultadoDeAtaques = `EMPATE 😮😮😮😮`;
         crearMensajeResultado();
     } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) {
-
         ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
         crearMensajeResultado();
         //triunfos++
     } else if (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`) {
-
         ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
         crearMensajeResultado();
         //triunfos++
     } else if (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) {
-
         ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
         crearMensajeResultado();
         //triunfos++
     } else {
-;
         ResultadoDeAtaques = `PERDISTE 😣😣😣😣😣`;
         crearMensajeResultado();
         //perdidas++
