@@ -283,10 +283,13 @@ function crearMensajeResultado () {
 // se podria eleiminar la variable ResultadoDeAtaques y colocarlo como parametro de crearMensajeResultado con el valor de cada condicional (ganar, perder o empatar).
 //COMBATE-------------------------
 function combateDeElementos () {
+    let spanVidaJugador = document.getElementById (`span-vida-jugador`);
+    let spanVidaPc = document.getElementById (`span-vida-pc`);
+
     if (ataqueElementoDeLaPc == ataqueElementoJugador) {
         ResultadoDeAtaques = `EMPATE 😮😮😮😮`;
         crearMensajeResultado();
-    } else if (ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘` || ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧` || ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`) {
+    } else if ((ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) || (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) || (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`)) {
         ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
         crearMensajeResultado();
         //triunfos++
@@ -297,8 +300,8 @@ function combateDeElementos () {
     }
 }
 
-let ResultadoDeAtaques;
 
+let ResultadoDeAtaques;
 
 window.addEventListener (`load`, init);
 
@@ -312,7 +315,8 @@ let ataqueElementoDeLaPc;
 let validate = 0;
 const mascotaElegidaPorPc = [`Mascota 1`];
 const mascotaElegidaPorJugador = [`Mascota 1`];
-
+let vidaJugador = 999;
+let vidaPc = 999;
 
 
 //.join es metodo para unir arrays!!.
