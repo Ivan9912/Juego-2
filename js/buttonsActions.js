@@ -289,13 +289,18 @@ function combateDeElementos () {
     if (ataqueElementoDeLaPc == ataqueElementoJugador) {
         ResultadoDeAtaques = `EMPATE 😮😮😮😮`;
         crearMensajeResultado();
+        
     } else if ((ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) || (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) || (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`)) {
         ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
         crearMensajeResultado();
+        vidaPc = vidaPc - 333;
+        spanVidaPc.innerHTML =  vidaPc;
         //triunfos++
     } else {
         ResultadoDeAtaques = `PERDISTE 😣😣😣😣😣`;
         crearMensajeResultado();
+        vidaJugador = vidaJugador - 333;
+        spanVidaJugador.innerHTML = vidaJugador;
         //perdidas++
     }
 }
@@ -362,6 +367,14 @@ mascotasEleccion.forEach ((mascota) => {
         
        //alert (jeje);
     });
+
+
+//function botonReinicio () {
+    //let reinicio = document.getElementById (`boton-reinicio`);
+    //reinicio.innerHTML = location.reload; 
+//}
+
+
 
 //console.table (listaMascotas);
 
