@@ -25,17 +25,17 @@ function init () {
             </button>`
             //let chequeo = escuchaOpcionesRadio[i].checked;
             if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[0]) {
-                alert (`funciona Mascota 1`);
+                alert (listaMascotas[0]);
             } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[1]) {
-                alert (`funciona Mascota 2`);
+                alert (listaMascotas[1]);
             } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[2]) {
-                alert (`funciona Mascota 3`);
+                alert (listaMascotas[2]);
             } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[3]) {
-                alert (`funciona Mascota 4`);
+                alert (listaMascotas[3]);
             } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[4]) {
-                alert (`funciona Mascota 5`);
+                alert (listaMascotas[4]);
             } else if(escuchaOpcionesRadio[i] == escuchaOpcionesRadio[5]) {
-                alert (`funciona Mascota 6`);
+                alert (listaMascotas[5]);
             }
             //console.log (chequeo);
         }
@@ -338,8 +338,34 @@ class Mascotas{
         this.atk = this.atk + random (10, 50);
     }
 }
+const mascotasEleccion = [];
+const listaMascotas = [];
+
+mascotasEleccion.push(new Mascotas(`Mascota 1`,`Agua`, 1000, 56,1.21,05,06,098));
+mascotasEleccion.push(new Mascotas(`Mascota 2`,`Tierra`, 1000, 57,1.21,05,06,097));
+mascotasEleccion.push(new Mascotas(`Mascota 3`,`Fuego`, 1000, 58,1.21,05,06,096));
+mascotasEleccion.push(new Mascotas(`Mascota 4`,`Agua y Fuego`, 1000, 59,1.21,05,06,095));
+mascotasEleccion.push(new Mascotas(`Mascota 5`,`Agua y Tierra`, 1000, 60,1.21,05,06,094));
+mascotasEleccion.push(new Mascotas(`Mascota 6`,`Tierra y Fuego`, 1000, 61,1.21,05,06,093));
 
 
+
+mascotasEleccion.forEach ((mascota) => {
+        listaMascotas.push (`
+        Su elección fué ${mascota.name} 
+        Su elemento es de ${mascota.element} 
+        Su ataque es de: ${mascota.atk}
+        Su defensa es de: ${mascota.def}
+        Su debilidad por Elemento de Tierra: ${mascota.deb1}
+        Su debilidad por Elemento de Agua: ${mascota.deb2}
+        Su debilidad por Elemento de Fuego: ${mascota.deb3}`);
+        
+       //alert (jeje);
+    });
+
+//console.table (listaMascotas);
+
+//console.table (mascotasEleccion[5]);
 
     //if (Eleccion == 1) {
     //    mascotasEleccion.push(new Mascotas(`Mascota 1`,`Agua`, 1000, 56,1.21,05,06,098));
