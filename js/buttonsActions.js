@@ -10,6 +10,8 @@ function init () {
     const fechaHoy = new Date ();
     spanfechaDeHoy.innerHTML = (`Fecha de hoy: ${fechaHoy.toDateString()} ${fechaHoy.toLocaleTimeString()} Hs.`);
 
+    let botonReinicio = document.getElementById (`boton-reiniciar`);
+    botonReinicio.addEventListener (`click`, botonDeReinicio);
 
     let escuchaOpcionesRadio = document.forms[`seleccionar-mascota`].elements[`mascota`];
     
@@ -115,10 +117,14 @@ function seleccionarMascotaPc () {
     if (validate == 1) {
         let spanBotonAtaque = document.getElementById (`botones-para-atacar`);
         spanBotonAtaque.innerHTML = `
-        <button id = "boton-fuego" onclick = fuego() class = "btn btn-outline-danger"> Fuego 🔥 </button>
-        <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info"> Agua 💧</button>
-        <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success"> Tierra ☘</button>
+        <button id = "boton-fuego" onclick = fuego() class = "btn btn-outline-danger" id = "boton-fuego"> Fuego 🔥 </button>
+        <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info" id = "boton-agua"> Agua 💧</button>
+        <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success" id = "boton-tierra"> Tierra ☘</button>
         <br><br><br>`;
+        escuchaBotonDeFuego = document.getElementById(`boton-fuego`);
+        escuchaBotonAgua = document.getElementById(`boton-agua`);
+        escuchaBotonTierra = document.getElementById(`boton-tierra`);
+        
         //disabled
     }           
 } 
@@ -274,7 +280,7 @@ function crearMensajeResultado () {
         if (wait == esperaResultadoAleatorio) {
             let seccionMensajes = document.getElementById (`mensajes`);
             let parrafo = document.createElement (`p`);
-            parrafo.innerHTML = `${ResultadoDeAtaques} Tú mascota atacó con.... ${ataqueElementoJugador}`;
+            parrafo.innerHTML = `${ataqueElementoJugador}  ${ataqueElementoDeLaPc}  ${progresoDeAtaques}`;
             seccionMensajes.appendChild(parrafo);
         }
         //console.log (wait);
@@ -287,26 +293,48 @@ function combateDeElementos () {
     let spanVidaPc = document.getElementById (`span-vida-pc`);
 
     if (ataqueElementoDeLaPc == ataqueElementoJugador) {
-        ResultadoDeAtaques = `EMPATE 😮😮😮😮`;
+        progresoDeAtaques = `Ninguno de los dos se pudo dañar 😮😮😮😮`;
         crearMensajeResultado();
         
     } else if ((ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) || (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) || (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`)) {
-        ResultadoDeAtaques = `GANASTE 🎉🎉🎈🥳🎉`;
+        progresoDeAtaques = `vida de la mascota Pc pierde ${ataqueDeLaPcAlJugador}`;
         crearMensajeResultado();
-        vidaPc = vidaPc - 333;
+        vidaPc = vidaPc - ataqueDeLaPcAlJugador;
         spanVidaPc.innerHTML =  vidaPc;
-        //triunfos++
     } else {
-        ResultadoDeAtaques = `PERDISTE 😣😣😣😣😣`;
+        progresoDeAtaques = `vida de tú mascota pierde ${ataqueDelJugadorALaPc}`;
         crearMensajeResultado();
-        vidaJugador = vidaJugador - 333;
+        vidaJugador = vidaJugador - ataqueDelJugadorALaPc;
         spanVidaJugador.innerHTML = vidaJugador;
-        //perdidas++
+    }
+    revisarVidas()
+}
+function revisarVidas () {
+    if (vidaPc == 0) {
+        crearMensajeFinal (`GANASTE el combate dejando a la mascota de la PC en 0. Felicitaciones! 🎉🎉🎈🥳🎉`);
+    } else if (vidaJugador == 0) {
+        crearMensajeFinal (`PERDISTE el combate la mascota de la PC dejó en 0 la vida de tú mascota. Vuelve a jugar...  😣😣😣😣😣`);
     }
 }
 
+function crearMensajeFinal (resultadoFinal) {
+    let seccionMensajes = document.getElementById (`mensajes`);
+    let parrafo = document.createElement (`p`);
+    parrafo.innerHTML = resultadoFinal;
+    seccionMensajes.appendChild(parrafo);  //aca se aplica lo interesante de las funciones junto con la funcion de revisarVidas...
+    escuchaBotonAgua.disabled = true;
+    escuchaBotonDeFuego.disabled = true;
+    escuchaBotonTierra.disabled = true;   //aca uso una nueva manera de deshabilitar botones...
+}
 
-let ResultadoDeAtaques;
+//let ResultadoDeAtaques;
+let escuchaBotonDeFuego;
+let escuchaBotonAgua;
+let escuchaBotonTierra;
+
+let ataqueDelJugadorALaPc = 333;
+let ataqueDeLaPcAlJugador = 333;
+let progresoDeAtaques;
 
 window.addEventListener (`load`, init);
 
@@ -369,10 +397,11 @@ mascotasEleccion.forEach ((mascota) => {
     });
 
 
-//function botonReinicio () {
-    //let reinicio = document.getElementById (`boton-reinicio`);
-    //reinicio.innerHTML = location.reload; 
-//}
+function botonDeReinicio () {
+    
+    location.reload(); 
+}
+
 
 
 
