@@ -55,35 +55,36 @@ function seleccionarMascotaJugador () {
     let spanMascotaJugador = document.getElementById (`nombre-mascota-jugador`);
 
     if (input1.checked) {
-        mascotaElegidaPorJugador.push (`Mascota 1`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[0].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[1];
+        validarBotonesAtaque (1);
         seleccionarMascotaPc();
     } else if (input2.checked){
-        mascotaElegidaPorJugador.push (`Mascota 2`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[1].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[1];
+        validarBotonesAtaque (2);
         seleccionarMascotaPc();
     } else if (input3.checked){
-        mascotaElegidaPorJugador.push (`Mascota 3`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[2].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[1];
+        validarBotonesAtaque (3);
         seleccionarMascotaPc();
     } else if (input4.checked){
-        mascotaElegidaPorJugador.push (`Mascota 4`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[3].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[1];
+        validarBotonesAtaque (4);
         seleccionarMascotaPc();
     } else if (input5.checked){
-        mascotaElegidaPorJugador.push (`Mascota 5`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[4].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[1];
+        validarBotonesAtaque (5);
         seleccionarMascotaPc();
     } else if (input6.checked){
-        mascotaElegidaPorJugador.push (`Mascota 6`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[5].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[1];
+        validarBotonesAtaque (6);
         seleccionarMascotaPc();
-    } else {
-        alert (`
-        Selecciona alguna mascota.
-        O sino, seleccione la opción "Aleatorio" para seleccionar.`);
-    }
-    if ( i % 2) {
+    } else if ( i % 2) {
         let botonDeTrampa1 = document.getElementById (`boton-pc`);
         botonDeTrampa1.addEventListener (`click`, seleccionarMascotaPcTrampa);
     }
@@ -95,63 +96,93 @@ function seleccionarMascotaPc () {
     let aleatorioMascotaPc = random (min, max);
         
     if (aleatorioMascotaPc == 1) {
-        mascotaElegidaPorPc.push (`Mascota 1`); 
+        mascotaElegidaPorPc.push (mascotasEleccion[0].name); 
         spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[1];
         } else if (aleatorioMascotaPc == 2) {
-            mascotaElegidaPorPc.push (`Mascota 2`); 
+            mascotaElegidaPorPc.push (mascotasEleccion[1].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[1];
         } else if (aleatorioMascotaPc == 3) {
-            mascotaElegidaPorPc.push (`Mascota 3`); 
+            mascotaElegidaPorPc.push (mascotasEleccion[2].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[1];
         } else if (aleatorioMascotaPc == 4) {
-            mascotaElegidaPorPc.push (`Mascota 4`); 
+            mascotaElegidaPorPc.push (mascotasEleccion[3].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[1];
         } else if (aleatorioMascotaPc == 5) {
-            mascotaElegidaPorPc.push (`Mascota 5`); 
+            mascotaElegidaPorPc.push (mascotasEleccion[4].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[1];
         } else if (aleatorioMascotaPc == 6) {
-            mascotaElegidaPorPc.push (`Mascota 6`); 
+            mascotaElegidaPorPc.push (mascotasEleccion[5].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[1];
     }
-    validate++;
-    if (validate == 1) {
-        let spanBotonAtaque = document.getElementById (`botones-para-atacar`);
+    
+             
+} 
+
+function validarBotonesAtaque (codigoMascota) {
+    
+    let spanBotonAtaque = document.getElementById (`botones-para-atacar`);
+    if (codigoMascota == 1) {
+        spanBotonAtaque.innerHTML = `
+        <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info" id = "boton-agua"> Agua 💧</button><br><br><br>`
+    //spanBotonAtaque.innerHTML = `
+    //<button id = "boton-fuego" onclick = fuego() class = "btn btn-outline-danger" id = "boton-fuego"> Fuego 🔥 </button>
+    //<button id = "boton-agua" onclick = agua() class = "btn btn-outline-info" id = "boton-agua"> Agua 💧</button>
+    //<button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success" id = "boton-tierra"> Tierra ☘</button>
+    //<br><br><br>`;
+    escuchaBotonAgua = document.getElementById(`boton-agua`);
+    
+    } else if (codigoMascota == 2) {
+        spanBotonAtaque.innerHTML = `
+        <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success" id = "boton-tierra"> Tierra ☘</button><br><br><br>`;
+        escuchaBotonTierra = document.getElementById(`boton-tierra`);
+    } else if (codigoMascota == 3) {
+        spanBotonAtaque.innerHTML = `
+        <button id = "boton-fuego" onclick = fuego() class = "btn btn-outline-danger" id = "boton-fuego"> Fuego 🔥 </button><br><br><br>`;
+        escuchaBotonDeFuego = document.getElementById(`boton-fuego`);
+    } else if (codigoMascota == 4) {
         spanBotonAtaque.innerHTML = `
         <button id = "boton-fuego" onclick = fuego() class = "btn btn-outline-danger" id = "boton-fuego"> Fuego 🔥 </button>
-        <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info" id = "boton-agua"> Agua 💧</button>
-        <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success" id = "boton-tierra"> Tierra ☘</button>
-        <br><br><br>`;
+        <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info" id = "boton-agua"> Agua 💧</button><br><br><br>`;
         escuchaBotonDeFuego = document.getElementById(`boton-fuego`);
         escuchaBotonAgua = document.getElementById(`boton-agua`);
+    } else if (codigoMascota == 5) {
+        spanBotonAtaque.innerHTML = `
+        <button id = "boton-agua" onclick = agua() class = "btn btn-outline-info" id = "boton-agua"> Agua 💧</button>
+        <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success" id = "boton-tierra"> Tierra ☘</button><br><br><br>`;
+        escuchaBotonAgua = document.getElementById(`boton-agua`);
         escuchaBotonTierra = document.getElementById(`boton-tierra`);
-        
-        //disabled
-    }           
-} 
+    } else if (codigoMascota == 6) {
+        spanBotonAtaque.innerHTML = `
+        <button id = "boton-fuego" onclick = fuego() class = "btn btn-outline-danger" id = "boton-fuego"> Fuego 🔥 </button>
+        <button id = "boton-tierra" onclick = tierra() class = "btn btn-outline-success" id = "boton-tierra"> Tierra ☘</button><br><br><br>`;
+        escuchaBotonDeFuego = document.getElementById(`boton-fuego`);
+        escuchaBotonTierra = document.getElementById(`boton-tierra`);
+    }
+}
     
 function seleccionarMascotaJugadorAleatorio () {
     let spanMascotaAleatorioJugador = document.getElementById (`nombre-mascota-jugador`);
     let aleatorioMascotaJugador = random (min, max);
     let spanMenuMascotas = document.getElementById (`ocultar-menu-mascotas`);
-    spanMenuMascotas.innerHTML = ``;
+    spanMenuMascotas.innerHTML = `<br><br><br><br><p>Seleccionaste el botón <b>"aleatorio"</b> por ende, no podrás volver a seleccionar sin <b>reiniciar</b> el juego.</p><br><br><br><br`;
         
     if (aleatorioMascotaJugador == 1) {
-        mascotaElegidaPorJugador.push (`Mascota 1`);
+        mascotaElegidaPorJugador.push (mascotasEleccion[0].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[1];
         } else if (aleatorioMascotaJugador == 2) {
-            mascotaElegidaPorJugador.push (`Mascota 2`);
+            mascotaElegidaPorJugador.push (mascotasEleccion[1].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[1];
         } else if (aleatorioMascotaJugador == 3) {
-            mascotaElegidaPorJugador.push (`Mascota 3`);
+            mascotaElegidaPorJugador.push (mascotasEleccion[2].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[1];
         } else if (aleatorioMascotaJugador == 4) {
-            mascotaElegidaPorJugador.push (`Mascota 4`);
+            mascotaElegidaPorJugador.push (mascotasEleccion[3].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[1];
         } else if (aleatorioMascotaJugador == 5) {
-            mascotaElegidaPorJugador.push (`Mascota 5`);
+            mascotaElegidaPorJugador.push (mascotasEleccion[4].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[1];
         } else if (aleatorioMascotaJugador == 6) {
-            mascotaElegidaPorJugador.push (`Mascota 6`);
+            mascotaElegidaPorJugador.push (mascotasEleccion[5].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[1];
     }
     seleccionarMascotaPc();
@@ -227,9 +258,8 @@ function seleccionarMascotaPcTrampa () {
     Éste es tú valor que se cambiará:  "${mascotaElegidaPorPc[aleatorioMascotaPc]}"`);
 }
 function trampa () {
-    i++;
     //console.log (i);
-    if (i % 2 || i == 0) {
+    if (i % 2 || i == 1) {
         let trampa = document.getElementById (`trampa`);
         trampa.innerHTML = `
         <p> 
@@ -242,8 +272,9 @@ function trampa () {
         </p>`
     } else {
         let trampa = document.getElementById (`trampa`);
-        trampa.innerHTML = ``;
+        trampa.innerHTML = `<br><br><br><br>`;
     }
+    i++;
     return i
 }
 
@@ -251,12 +282,9 @@ function infoMascotas () {
     //console.log (index);
     if (index % 2 || index == 1) {
         let info = document.getElementById (`span-info-elementos-mascotas`);
-        info.innerHTML = `
-        <label>
-            Presiona el botón para saber más sobre los elementos de las mascotas.
-        </label>`;
+        info.innerHTML = `<br><br><br><br><br><br><br>`;
         let atrasInfo = document.getElementById (`atras-info`);
-        atrasInfo.innerHTML = `Info...`;
+        atrasInfo.innerHTML = `Presiona para saber elementos de las mascotas...`;
     } else {
         let info = document.getElementById (`span-info-elementos-mascotas`);
         info.innerHTML = `
@@ -322,15 +350,27 @@ function crearMensajeFinal (resultadoFinal) {
     let parrafo = document.createElement (`p`);
     parrafo.innerHTML = resultadoFinal;
     seccionMensajes.appendChild(parrafo);  //aca se aplica lo interesante de las funciones junto con la funcion de revisarVidas...
-    escuchaBotonAgua.disabled = true;
-    escuchaBotonDeFuego.disabled = true;
-    escuchaBotonTierra.disabled = true;   //aca uso una nueva manera de deshabilitar botones...
+    desactivarBotones ();
+    
 }
+function desactivarBotones () {
+    if (escuchaBotonAgua != undefined) {
+        escuchaBotonAgua.disabled = true;
+    } 
+    if (escuchaBotonDeFuego != undefined) {
+        escuchaBotonDeFuego.disabled = true;
+    } 
+    if (escuchaBotonTierra != undefined) {
+        escuchaBotonTierra.disabled = true;
+    } //aca uso una nueva manera de deshabilitar botones...
+}
+
 
 //let ResultadoDeAtaques;
 let escuchaBotonDeFuego;
 let escuchaBotonAgua;
 let escuchaBotonTierra;
+
 
 let ataqueDelJugadorALaPc = 333;
 let ataqueDeLaPcAlJugador = 333;
@@ -342,10 +382,8 @@ let index = 0;
 let i = 0;
 let min = 1;
 let max = 6;
-let seleccion;
 let ataqueElementoJugador;
 let ataqueElementoDeLaPc;
-let validate = 0;
 const mascotaElegidaPorPc = [`Mascota 1`];
 const mascotaElegidaPorJugador = [`Mascota 1`];
 let vidaJugador = 999;
@@ -380,7 +418,6 @@ mascotasEleccion.push(new Mascotas(`Mascota 3`,`Fuego`, 1000, 58,1.21,05,06,096)
 mascotasEleccion.push(new Mascotas(`Mascota 4`,`Agua y Fuego`, 1000, 59,1.21,05,06,095));
 mascotasEleccion.push(new Mascotas(`Mascota 5`,`Agua y Tierra`, 1000, 60,1.21,05,06,094));
 mascotasEleccion.push(new Mascotas(`Mascota 6`,`Tierra y Fuego`, 1000, 61,1.21,05,06,093));
-
 
 
 mascotasEleccion.forEach ((mascota) => {
