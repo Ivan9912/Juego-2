@@ -1,5 +1,9 @@
 function init () {
-            
+    
+    
+
+
+
     let botonParaMascotaJugador = document.getElementById (`seleccionar-mascota-jugador`);
     botonParaMascotaJugador.addEventListener (`click`, seleccionarMascotaJugador);  
 
@@ -57,26 +61,32 @@ function seleccionarMascotaJugador () {
     if (input1.checked) {
         mascotaElegidaPorJugador.push (mascotasEleccion[0].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[0];
         validarBotonesAtaque (1);
     } else if (input2.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[1].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[1];
         validarBotonesAtaque (2);
     } else if (input3.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[2].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[2];
         validarBotonesAtaque (3);
     } else if (input4.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[3].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[3];
         validarBotonesAtaque (4);
     } else if (input5.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[4].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[4];
         validarBotonesAtaque (5);
     } else if (input6.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[5].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[5];
         validarBotonesAtaque (6);
     } else if ( i % 2) {
         let botonDeTrampa1 = document.getElementById (`boton-pc`);
@@ -108,26 +118,32 @@ function seleccionarMascotaJugadorAleatorio () {
     if (aleatorioMascotaJugador == 1) {
         mascotaElegidaPorJugador.push (mascotasEleccion[0].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[0];
         validarBotonesAtaque (1);
         } else if (aleatorioMascotaJugador == 2) {
             mascotaElegidaPorJugador.push (mascotasEleccion[1].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[1];
         validarBotonesAtaque (2);
         } else if (aleatorioMascotaJugador == 3) {
             mascotaElegidaPorJugador.push (mascotasEleccion[2].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[2];
         validarBotonesAtaque (3);
         } else if (aleatorioMascotaJugador == 4) {
             mascotaElegidaPorJugador.push (mascotasEleccion[3].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[3];
         validarBotonesAtaque (4);
         } else if (aleatorioMascotaJugador == 5) {
             mascotaElegidaPorJugador.push (mascotasEleccion[4].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[4];
         validarBotonesAtaque (5);
         } else if (aleatorioMascotaJugador == 6) {
             mascotaElegidaPorJugador.push (mascotasEleccion[5].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
+        ataqueDelJugadorALaPc = registroDeAtaque[5];
         validarBotonesAtaque (6);
     }
     seleccionarMascotaPc();
@@ -146,26 +162,32 @@ function seleccionarMascotaPc () {
     if (aleatorioMascotaPc == 1) {
         mascotaElegidaPorPc.push (mascotasEleccion[0].name); 
         spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
+        ataqueDeLaPcAlJugador = registroDeAtaque[0];
         eleccionPc = 1;
         } else if (aleatorioMascotaPc == 2) {
             mascotaElegidaPorPc.push (mascotasEleccion[1].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[0];
             eleccionPc = 2;;
         } else if (aleatorioMascotaPc == 3) {
             mascotaElegidaPorPc.push (mascotasEleccion[2].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[0];
             eleccionPc = 3;
         } else if (aleatorioMascotaPc == 4) {
             mascotaElegidaPorPc.push (mascotasEleccion[3].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[0];
             eleccionPc = 4;
         } else if (aleatorioMascotaPc == 5) {
             mascotaElegidaPorPc.push (mascotasEleccion[4].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[0];
             eleccionPc = 5;
         } else if (aleatorioMascotaPc == 6) {
             mascotaElegidaPorPc.push (mascotasEleccion[5].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[0];
             eleccionPc = 6;
     }
 } 
@@ -207,18 +229,29 @@ function validarBotonesAtaque (codigoMascota) {
     }
 }
 
+function ataqueAleatoriooo () {
+    let aletoidad = random (60, 100);
+    return aletoidad
+}
+
 function fuego () {
     let spanElementosJugador = document.getElementById (`span-elementos-jugador`);
     ataqueElementoJugador = `Fuego 🔥`;
     spanElementosJugador.innerHTML = `Elemento de ${ataqueElementoJugador}`;
     ataqueDeLaPc ();
+    
+    //ataqueAleatoriooo();
+    
 }
 
 function agua () {
     let spanElementosJugador = document.getElementById (`span-elementos-jugador`);
     ataqueElementoJugador = `Agua 💧`;
     spanElementosJugador.innerHTML = `Elemento de ${ataqueElementoJugador}`;
-    ataqueDeLaPc ();     
+    ataqueDeLaPc (); 
+    //ataqueAleatoriooo();   
+     
+   
 }
 
 function tierra () {
@@ -226,11 +259,17 @@ function tierra () {
     ataqueElementoJugador = `Tierra ☘`;
     spanElementosJugador.innerHTML = `Elemento de ${ataqueElementoJugador}`;
     ataqueDeLaPc ();
+    //ataqueAleatoriooo();
+    
+    
 }
-let eleccionPc;
+
 function ataqueDeLaPc () {
     let ataqueAleatorio = random (min, (max-4));
     let spanElementosDeLaPc = document.getElementById (`span-elementos-enemigo`);
+    ataqueDelJugadorALaPc = ataqueAleatoriooo();
+    ataqueDeLaPcAlJugador = ataqueAleatoriooo();
+
     if (eleccionPc == 1) {
         ataqueElementoDeLaPc = `Agua 💧`;
     } else if (eleccionPc == 2) {
@@ -354,22 +393,22 @@ function combateDeElementos () {
         crearMensajeResultado();
         
     } else if ((ataqueElementoDeLaPc == `Fuego 🔥` && ataqueElementoJugador == `Tierra ☘`) || (ataqueElementoDeLaPc == `Tierra ☘` && ataqueElementoJugador == `Agua 💧`) || (ataqueElementoDeLaPc == `Agua 💧` && ataqueElementoJugador == `Fuego 🔥`)) {
-        progresoDeAtaques = `vida de la mascota Pc pierde ${ataqueDeLaPcAlJugador}`;
+        progresoDeAtaques = `vida de la mascota Pc pierde ${ataqueDelJugadorALaPc}`;
         crearMensajeResultado();
-        vidaPc = vidaPc - ataqueDeLaPcAlJugador;
+        vidaPc = vidaPc - ataqueDelJugadorALaPc;
         spanVidaPc.innerHTML =  vidaPc;
     } else {
-        progresoDeAtaques = `vida de tú mascota pierde ${ataqueDelJugadorALaPc}`;
+        progresoDeAtaques = `vida de tú mascota pierde ${ataqueDeLaPcAlJugador}`;
         crearMensajeResultado();
-        vidaJugador = vidaJugador - ataqueDelJugadorALaPc;
+        vidaJugador = vidaJugador - ataqueDeLaPcAlJugador;
         spanVidaJugador.innerHTML = vidaJugador;
     }
     revisarVidas()
 }
 function revisarVidas () {
-    if (vidaPc == 0) {
+    if (vidaPc <= 0) {
         crearMensajeFinal (`GANASTE el combate dejando a la mascota de la PC en 0. Felicitaciones! 🎉🎉🎈🥳🎉`);
-    } else if (vidaJugador == 0) {
+    } else if (vidaJugador <= 0) {
         crearMensajeFinal (`PERDISTE el combate la mascota de la PC dejó en 0 la vida de tú mascota. Vuelve a jugar...  😣😣😣😣😣`);
     }
 }
@@ -400,12 +439,14 @@ let escuchaBotonDeFuego;
 let escuchaBotonAgua;
 let escuchaBotonTierra;
 
-
-let ataqueDelJugadorALaPc = 333;
+let registroDeAtaque = [];
+let ataqueDelJugadorALaPc;
 let ataqueDeLaPcAlJugador = 333;
+
 let progresoDeAtaques;
 
 window.addEventListener (`load`, init);
+let eleccionPc;
 
 let index = 0;
 let i = 0;
@@ -415,6 +456,8 @@ let ataqueElementoJugador;
 let ataqueElementoDeLaPc;
 const mascotaElegidaPorPc = [];
 const mascotaElegidaPorJugador = [];
+const mascotaAtaque = [];
+const vidaJugador2 = [];
 let vidaJugador = 999;
 let vidaPc = 999;
 
@@ -427,26 +470,24 @@ class Mascotas{
         this.name = name
         this.element = element
         this.health = health
-        this.atk = parseFloat (atk)
+        this.atk = atk
         this.def = def
         this.deb1 = deb1
         this.deb2 = deb2
         this.deb3 = deb3
 
     }
-    ataqueAleatoriooo () {
-        this.atk = this.atk + random (10, 50);
-    }
+    
 }
 const mascotasEleccion = [];
 const listaMascotas = [];
 
-mascotasEleccion.push(new Mascotas(`Mascota 1`,`Agua`, 1000, 56,1.21,05,06,098));
-mascotasEleccion.push(new Mascotas(`Mascota 2`,`Tierra`, 1000, 57,1.21,05,06,097));
-mascotasEleccion.push(new Mascotas(`Mascota 3`,`Fuego`, 1000, 58,1.21,05,06,096));
-mascotasEleccion.push(new Mascotas(`Mascota 4`,`Agua y Fuego`, 1000, 59,1.21,05,06,095));
+mascotasEleccion.push(new Mascotas(`Mascota 1`,`Agua`, 1000, 60,1.21,05,06,098));
+mascotasEleccion.push(new Mascotas(`Mascota 2`,`Tierra`, 1000, 60,1.21,05,06,097));
+mascotasEleccion.push(new Mascotas(`Mascota 3`,`Fuego`, 1000, 60,60.21,05,06,096));
+mascotasEleccion.push(new Mascotas(`Mascota 4`,`Agua y Fuego`, 1000, 60,1.21,05,06,095));
 mascotasEleccion.push(new Mascotas(`Mascota 5`,`Agua y Tierra`, 1000, 60,1.21,05,06,094));
-mascotasEleccion.push(new Mascotas(`Mascota 6`,`Tierra y Fuego`, 1000, 61,1.21,05,06,093));
+mascotasEleccion.push(new Mascotas(`Mascota 6`,`Tierra y Fuego`, 1000, 60,1.21,05,06,093));
 
 
 mascotasEleccion.forEach ((mascota) => {
@@ -458,6 +499,7 @@ mascotasEleccion.forEach ((mascota) => {
         Su debilidad por Elemento de Tierra: ${mascota.deb1}
         Su debilidad por Elemento de Agua: ${mascota.deb2}
         Su debilidad por Elemento de Fuego: ${mascota.deb3}`);
+        registroDeAtaque.push (mascota.atk);
         
        //alert (jeje);
     });
@@ -471,36 +513,3 @@ function botonDeReinicio () {
 
 
 
-//console.table (listaMascotas);
-
-//console.table (mascotasEleccion[5]);
-
-    //if (Eleccion == 1) {
-    //    mascotasEleccion.push(new Mascotas(`Mascota 1`,`Agua`, 1000, 56,1.21,05,06,098));
-    //} else if (Eleccion == 2) {
-    //    mascotasEleccion.push(new Mascotas(`Mascota 2`,`Tierra`, 1000, 57,1.21,05,06,097));
-    //} else if (Eleccion == 3) {
-    //    mascotasEleccion.push(new Mascotas(`Mascota 3`,`Fuego`, 1000, 58,1.21,05,06,096));
-    //} else if (Eleccion == 4) {
-    //    mascotasEleccion.push(new Mascotas(`Mascota 4`,`Agua y Fuego`, 1000, 59,1.21,05,06,095));
-    //} else if (Eleccion == 5) {
-    //    mascotasEleccion.push(new Mascotas(`Mascota 5`,`Agua y Tierra`, 1000, 60,1.21,05,06,094));
-    //} else if (Eleccion == 6) {
-    //    mascotasEleccion.push(new Mascotas(`Mascota 6`,`Tierra y Fuego`, 1000, 61,1.21,05,06,093));
-    //} else {
-    //    mascotasEleccion.push(new Mascotas(`Sin definir`,`sin definir`,`sin definir`,`sin definir`,`sin definir`,`sin definir`,`sin definir`,`sin definir`));
-    //    alert (`Realiza nuevamente su elección con F5.` );
-    //}
-    //mascotasEleccion.forEach ((mascota) => {
-    //    listaa.push (`
-    //    ${index} - Su elección fué ${mascota.name} 
-    //    Su elemento es de ${mascota.element} 
-    //    Su ataque es de: ${mascota.atk}
-    //    Su defensa es de: ${mascota.def}
-    //    Su debilidad por Elemento de Tierra: ${mascota.deb1}
-    //    Su debilidad por Elemento de Agua: ${mascota.deb2}
-    //    Su debilidad por Elemento de Fuego: ${mascota.deb3}`);
-    //    index++;
-       //alert (jeje);
-    //});
-    //alert (listaa[0]);
