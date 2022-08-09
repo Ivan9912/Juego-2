@@ -57,36 +57,43 @@ function seleccionarMascotaJugador () {
     let input5 = document.getElementById (`mascota-5`);
     let input6 = document.getElementById (`mascota-6`);
     let spanMascotaJugador = document.getElementById (`nombre-mascota-jugador`);
+    let spanVidaJugador = document.getElementById (`span-vida-jugador`);
 
     if (input1.checked) {
         mascotaElegidaPorJugador.push (mascotasEleccion[0].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[0];
+        vidaJugador = registroDeVida[0];
         validarBotonesAtaque (1);
     } else if (input2.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[1].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[1];
+        vidaJugador = registroDeVida[1];
         validarBotonesAtaque (2);
     } else if (input3.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[2].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[2];
+        vidaJugador = registroDeVida[2];
         validarBotonesAtaque (3);
     } else if (input4.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[3].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[3];
+        vidaJugador = registroDeVida[3];
         validarBotonesAtaque (4);
     } else if (input5.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[4].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[4];
+        vidaJugador = registroDeVida[4];
         validarBotonesAtaque (5);
     } else if (input6.checked){
         mascotaElegidaPorJugador.push (mascotasEleccion[5].name);
         seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[5];
+        vidaJugador = registroDeVida[5];
         validarBotonesAtaque (6);
     } else if ( i % 2) {
         let botonDeTrampa1 = document.getElementById (`boton-pc`);
@@ -94,6 +101,7 @@ function seleccionarMascotaJugador () {
     }
     quitaBotonesDeEleccion();
     seleccionarMascotaPc();
+    spanVidaJugador.innerHTML = vidaJugador;
     return seleccion;
 }
 
@@ -113,41 +121,50 @@ function seleccionarMascotaJugadorAleatorio () {
     let aleatorioMascotaJugador = random (min, max);
     let spanMenuMascotas = document.getElementById (`ocultar-menu-mascotas`);
     spanMenuMascotas.innerHTML = `<br><br><br><br><p>Seleccionaste el botón <b>"aleatorio"</b> por ende, no podrás volver a seleccionar sin <b>reiniciar</b> el juego.</p><br><br><br><br`;
-    
+    let spanVidaJugador = document.getElementById (`span-vida-jugador`);
         
     if (aleatorioMascotaJugador == 1) {
         mascotaElegidaPorJugador.push (mascotasEleccion[0].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[0];
+        vidaJugador = registroDeVida[0];
+        alet (vidaJugador)
+        spanVidaJugador.innerHTML = vidaJugador;
         validarBotonesAtaque (1);
         } else if (aleatorioMascotaJugador == 2) {
             mascotaElegidaPorJugador.push (mascotasEleccion[1].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[1];
+        vidaJugador = registroDeVida[1];
         validarBotonesAtaque (2);
         } else if (aleatorioMascotaJugador == 3) {
             mascotaElegidaPorJugador.push (mascotasEleccion[2].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[2];
+        vidaJugador = registroDeVida[2];
         validarBotonesAtaque (3);
         } else if (aleatorioMascotaJugador == 4) {
             mascotaElegidaPorJugador.push (mascotasEleccion[3].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[3];
+        vidaJugador = registroDeVida[3];
         validarBotonesAtaque (4);
         } else if (aleatorioMascotaJugador == 5) {
             mascotaElegidaPorJugador.push (mascotasEleccion[4].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[4];
+        vidaJugador = registroDeVida[4];
         validarBotonesAtaque (5);
         } else if (aleatorioMascotaJugador == 6) {
             mascotaElegidaPorJugador.push (mascotasEleccion[5].name);
         spanMascotaAleatorioJugador.innerHTML = mascotaElegidaPorJugador[0];
         ataqueDelJugadorALaPc = registroDeAtaque[5];
+        vidaJugador = registroDeVida[5];
         validarBotonesAtaque (6);
     }
     seleccionarMascotaPc();
     quitaBotonesDeEleccion();
+    spanVidaJugador.innerHTML = vidaJugador;
 
     if ( i % 2) {
         let botonDeTrampa2 = document.getElementById (`boton-pc`);
@@ -157,39 +174,47 @@ function seleccionarMascotaJugadorAleatorio () {
 
 function seleccionarMascotaPc () {
     let spanMascotaAleatorioPc = document.getElementById (`nombre-mascota-pc`);
+    let spanVidaPc = document.getElementById (`span-vida-pc`);
     let aleatorioMascotaPc = random (min, max);
         
     if (aleatorioMascotaPc == 1) {
         mascotaElegidaPorPc.push (mascotasEleccion[0].name); 
         spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
         ataqueDeLaPcAlJugador = registroDeAtaque[0];
+        vidaPc = registroDeVida[0];
         eleccionPc = 1;
         } else if (aleatorioMascotaPc == 2) {
             mascotaElegidaPorPc.push (mascotasEleccion[1].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
-            ataqueDeLaPcAlJugador = registroDeAtaque[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[1];
+            vidaPc = registroDeVida[1];
             eleccionPc = 2;;
         } else if (aleatorioMascotaPc == 3) {
             mascotaElegidaPorPc.push (mascotasEleccion[2].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
-            ataqueDeLaPcAlJugador = registroDeAtaque[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[2];
+            vidaPc = registroDeVida[2];
             eleccionPc = 3;
         } else if (aleatorioMascotaPc == 4) {
             mascotaElegidaPorPc.push (mascotasEleccion[3].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
-            ataqueDeLaPcAlJugador = registroDeAtaque[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[3];
+            vidaPc = registroDeVida[3];
             eleccionPc = 4;
         } else if (aleatorioMascotaPc == 5) {
             mascotaElegidaPorPc.push (mascotasEleccion[4].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
-            ataqueDeLaPcAlJugador = registroDeAtaque[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[4];
+            vidaPc = registroDeVida[4];
             eleccionPc = 5;
         } else if (aleatorioMascotaPc == 6) {
             mascotaElegidaPorPc.push (mascotasEleccion[5].name); 
             spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
-            ataqueDeLaPcAlJugador = registroDeAtaque[0];
+            ataqueDeLaPcAlJugador = registroDeAtaque[5];
+            vidaPc = registroDeVida[5];
             eleccionPc = 6;
     }
+    spanVidaPc.innerHTML = vidaPc;
 } 
 
 function validarBotonesAtaque (codigoMascota) {
@@ -440,8 +465,9 @@ let escuchaBotonAgua;
 let escuchaBotonTierra;
 
 let registroDeAtaque = [];
+let registroDeVida = [];
 let ataqueDelJugadorALaPc;
-let ataqueDeLaPcAlJugador = 333;
+let ataqueDeLaPcAlJugador;
 
 let progresoDeAtaques;
 
@@ -494,12 +520,14 @@ mascotasEleccion.forEach ((mascota) => {
         listaMascotas.push (`
         Su elección fué ${mascota.name} 
         Su elemento es de ${mascota.element} 
+        Su vida es de ${mascota.health}
         Su ataque es de: ${mascota.atk}
         Su defensa es de: ${mascota.def}
         Su debilidad por Elemento de Tierra: ${mascota.deb1}
         Su debilidad por Elemento de Agua: ${mascota.deb2}
         Su debilidad por Elemento de Fuego: ${mascota.deb3}`);
         registroDeAtaque.push (mascota.atk);
+        registroDeVida.push (mascota.health);
         
        //alert (jeje);
     });
