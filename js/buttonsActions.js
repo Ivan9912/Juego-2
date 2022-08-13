@@ -498,7 +498,3 @@ mascotasEleccion.forEach ((mascota) => {
     registroDeDebTierra.push (mascota.debTierra);  
     }
 )
-
-
-
-
