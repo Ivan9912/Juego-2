@@ -1,6 +1,4 @@
-
-    
-    function init () {
+function init () {
 
     
     
@@ -87,17 +85,17 @@ function seleccionarMascotaJugadorAleatorio () {
     let spanVidaJugador = document.getElementById (`span-vida-jugador`);
         
     if (aleatorioMascotaJugador == 1) {
-        registroDeElecciones (0);  
+        registroDeElecciones (1);  
         } else if (aleatorioMascotaJugador == 2) {
-            registroDeElecciones (1);
-        } else if (aleatorioMascotaJugador == 3) {
             registroDeElecciones (2);
-        } else if (aleatorioMascotaJugador == 4) {
+        } else if (aleatorioMascotaJugador == 3) {
             registroDeElecciones (3);
-        } else if (aleatorioMascotaJugador == 5) {
+        } else if (aleatorioMascotaJugador == 4) {
             registroDeElecciones (4);
-        } else if (aleatorioMascotaJugador == 6) {
+        } else if (aleatorioMascotaJugador == 5) {
             registroDeElecciones (5);
+        } else if (aleatorioMascotaJugador == 6) {
+            registroDeElecciones (6);
     }
     seleccionarMascotaPc();
     
@@ -110,11 +108,11 @@ function seleccionarMascotaJugadorAleatorio () {
 
 function registroDeElecciones (mascota) {
     let spanMascotaJugador = document.getElementById (`nombre-mascota-jugador`);
-    mascotaElegidaPorJugador.push (mascotasEleccion[mascota].name);
+    mascotaElegidaPorJugador.push (mascotasEleccion[mascota-1].name);
     seleccion = spanMascotaJugador.innerHTML = mascotaElegidaPorJugador[0];
-    ataqueDelJugadorALaPc = registroDeAtaque[mascota];
-    vidaJugador = registroDeVida[mascota];
-    validarBotonesAtaque (mascota+1);
+    ataqueDelJugadorALaPc = registroDeAtaque[mascota-1];
+    vidaJugador = registroDeVida[mascota-1];
+    validarBotonesAtaque (mascota);
     
 
 }
@@ -138,17 +136,17 @@ function seleccionarMascotaPc () {
     let aleatorioMascotaPc = random (min, max);
         
     if (aleatorioMascotaPc == 1) {
-        registroDeEleccionesPc(0);
+        registroDeEleccionesPc(1);
         } else if (aleatorioMascotaPc == 2) {
-            registroDeEleccionesPc(1);
-        } else if (aleatorioMascotaPc == 3) {
             registroDeEleccionesPc(2);
-        } else if (aleatorioMascotaPc == 4) {
+        } else if (aleatorioMascotaPc == 3) {
             registroDeEleccionesPc(3);
-        } else if (aleatorioMascotaPc == 5) {
+        } else if (aleatorioMascotaPc == 4) {
             registroDeEleccionesPc(4);
-        } else if (aleatorioMascotaPc == 6) {
+        } else if (aleatorioMascotaPc == 5) {
             registroDeEleccionesPc(5);
+        } else if (aleatorioMascotaPc == 6) {
+            registroDeEleccionesPc(6);
     }
     spanVidaPc.innerHTML = vidaPc;
     
@@ -156,12 +154,12 @@ function seleccionarMascotaPc () {
 
 function registroDeEleccionesPc (MascotaPc) {
     let spanMascotaAleatorioPc = document.getElementById (`nombre-mascota-pc`);
-    mascotaElegidaPorPc.push (mascotasEleccion[MascotaPc].name); 
+    mascotaElegidaPorPc.push (mascotasEleccion[MascotaPc-1].name); 
     spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[0];
-    ataqueDeLaPcAlJugador = registroDeAtaque[MascotaPc];
-    console.log (registroDeAtaque[MascotaPc])
-    vidaPc = registroDeVida[MascotaPc];
-    eleccionPc = MascotaPc+1;
+    ataqueDeLaPcAlJugador = registroDeAtaque[MascotaPc-1];
+    console.log (registroDeAtaque[MascotaPc-1])
+    vidaPc = registroDeVida[MascotaPc-1];
+    eleccionPc = MascotaPc;
 
     
 }
@@ -195,10 +193,6 @@ function validarBotonesAtaque (codigoMascota) {
     sectionAtaque.style.display=`block`;
     let sectionMain = document.getElementById(`section-main`);
     sectionMain.style.display=`none`;
-    let sectionMain2 = document.getElementById(`section-main2`);
-    sectionMain2.style.display=`none`;
-    
-    ;
 }
 
 function ataqueAleatoriooo () {
