@@ -1,7 +1,5 @@
 function init () {
 
-    
-    
     let botonParaMascotaJugador = document.getElementById (`seleccionar-mascota-jugador`);
     botonParaMascotaJugador.addEventListener (`click`, seleccionarMascotaJugador);  
 
@@ -74,7 +72,6 @@ function seleccionarMascotaJugador () {
     
     seleccionarMascotaPc();
     spanVidaJugador.innerHTML = vidaJugador;
-    
     return seleccion;
 }
 
@@ -98,11 +95,7 @@ function seleccionarMascotaJugadorAleatorio () {
             registroDeElecciones (6);
     }
     seleccionarMascotaPc();
-    
     spanVidaJugador.innerHTML = vidaJugador;
-    
-
-          
 }
 
 
@@ -113,8 +106,6 @@ function registroDeElecciones (mascota) {
     ataqueDelJugadorALaPc = registroDeAtaque[mascota-1];
     vidaJugador = registroDeVida[mascota-1];
     validarBotonesAtaque (mascota);
-    
-
 }
 
 //function quitaBotonesDeEleccion () {
@@ -149,7 +140,6 @@ function seleccionarMascotaPc () {
             registroDeEleccionesPc(6);
     }
     spanVidaPc.innerHTML = vidaPc;
-    
 } 
 
 function registroDeEleccionesPc (MascotaPc) {
@@ -160,8 +150,6 @@ function registroDeEleccionesPc (MascotaPc) {
     console.log (registroDeAtaque[MascotaPc-1])
     vidaPc = registroDeVida[MascotaPc-1];
     eleccionPc = MascotaPc;
-
-    
 }
 
 function validarBotonesAtaque (codigoMascota) {
@@ -193,11 +181,8 @@ function validarBotonesAtaque (codigoMascota) {
     sectionAtaque.style.display=`block`;
     let sectionMain = document.getElementById(`section-main`);
     sectionMain.style.display=`none`;
-}
-
-function ataqueAleatoriooo () {
-    let aletoidad = random (60, 100);
-    return aletoidad
+    let sectionMain2 = document.getElementById(`section-botones-seleccion-jugador`);
+    sectionMain2.style.display=`none`;
 }
 
 function elementoFuego () {
@@ -205,15 +190,13 @@ function elementoFuego () {
     ataqueElementoJugador = `Fuego 🔥`;
     spanElementosJugador.innerHTML = `Elemento de ${ataqueElementoJugador}`;
     ataqueDeLaPc ();
-    //ataqueAleatoriooo();
 }
 
 function elementoAgua () {
     let spanElementosJugador = document.getElementById (`span-elementos-jugador`);
     ataqueElementoJugador = `Agua 💧`;
     spanElementosJugador.innerHTML = `Elemento de ${ataqueElementoJugador}`;
-    ataqueDeLaPc (); 
-    //ataqueAleatoriooo();    
+    ataqueDeLaPc ();    
 }
 
 function elementoTierra () {
@@ -221,7 +204,6 @@ function elementoTierra () {
     ataqueElementoJugador = `Tierra ☘`;
     spanElementosJugador.innerHTML = `Elemento de ${ataqueElementoJugador}`;
     ataqueDeLaPc ();
-    //ataqueAleatoriooo();
 }
 
 function ataqueDeLaPc () {
@@ -263,6 +245,15 @@ function random (minimo, maximo) {
     return Math.floor (Math.random() * (maximo - minimo + 1) + minimo);
 }
 
+function botonDeReinicio () {
+    location.reload(); 
+}
+
+function ataqueAleatoriooo () {
+    let aletoidad = random (60, 100);
+    return aletoidad
+}
+
 //----------------------------
 function seleccionarMascotaPcTrampa () {
     for (i = 0; i< 2; i++) {
@@ -274,7 +265,6 @@ function seleccionarMascotaPcTrampa () {
     spanMascotaAleatorioPc.innerHTML = mascotaElegidaPorPc[aleatorioMascotaPc];
     //console.table (mascotaElegidaPorPc); //MIRAR ACA se itera en mascotaAlea objetos y se seleccionan aleatoriamente...
    
-    
     alert (`
     Este botón se desarrolló para probar las posibles variables de 
     ataques. 
@@ -340,7 +330,9 @@ function crearMensajeResultado () {
         //console.log (wait);
     }
 }
+
 // se podria eleiminar la variable ResultadoDeAtaques y colocarlo como parametro de crearMensajeResultado con el valor de cada condicional (ganar, perder o empatar).
+
 //COMBATE-------------------------
 function combateDeElementos () {
     let spanVidaJugador = document.getElementById (`span-vida-jugador`);
@@ -386,7 +378,6 @@ function revisarVidas () {
         crearMensajeFinal (`PERDISTE el combate la mascota de la PC dejó en 0 la vida de tú mascota. Vuelve a jugar...  😣😣😣😣😣`);
         vidaJugador = 0;
     }
-
 }
 
 function crearMensajeFinal (resultadoFinal) {
@@ -472,7 +463,6 @@ mascotasEleccion.push(new Mascotas(`Mascota 4`,`Agua y Fuego`, 1000, 60,1.21,05,
 mascotasEleccion.push(new Mascotas(`Mascota 5`,`Agua y Tierra`, 1000, 60,1.21,05,06,094));
 mascotasEleccion.push(new Mascotas(`Mascota 6`,`Tierra y Fuego`, 1000, 60,1.21,05,06,093));
 
-
 mascotasEleccion.forEach ((mascota) => {
     listaMascotas.push (`
     Su elección fué ${mascota.name} 
@@ -487,13 +477,3 @@ mascotasEleccion.forEach ((mascota) => {
     registroDeVida.push (mascota.health);    
     }
 )
-
-
-function botonDeReinicio () {
-    
-    location.reload(); 
-}
-
-
-
-
