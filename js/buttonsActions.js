@@ -6,13 +6,10 @@ function init () {
     let botonParaMascotaJugadorAleatorio = document.getElementById (`seleccionar-mascota-jugador-aleatorio`);
     botonParaMascotaJugadorAleatorio.addEventListener (`click`, seleccionarMascotaJugadorAleatorio); 
 
-    let spanfechaDeHoy = document.getElementById (`fecha-de-hoy`);
-    const fechaHoy = new Date ();
-    spanfechaDeHoy.innerHTML = (`Fecha de hoy: ${fechaHoy.toDateString()} ${fechaHoy.toLocaleTimeString()} Hs.`);
-
+    
+    relogActualizable ();
     let botonReinicio = document.getElementById (`boton-reiniciar`);
     botonReinicio.addEventListener (`click`, botonDeReinicio);
-
 
     //let sectionAtaque = document.getElementById (`section-ataque`);
     //sectionAtaque.style.display=`block`;
@@ -46,6 +43,27 @@ function init () {
         }
     }
 };
+
+function relogActualizable () {
+    const currentTime = () => {
+        const idTime = document.getElementById (`fecha-de-hoy`);
+        const date = new Date ();
+        let hh = date.getHours();
+        let mm = date.getMinutes();
+        let ss = date.getSeconds(); 
+
+        hh = hh < 10 ? `0${hh}` : hh;
+        mm = mm < 10 ? `0${mm}` : mm;
+        ss = ss < 10 ? `0${ss}` : ss;
+
+        let time = `${hh}:${mm}:${ss}`
+
+        idTime.innerText = (`Fecha de hoy: ${date.toDateString()} ${time} Hs.`);
+    };
+    currentTime ();
+    setInterval(currentTime, 1000);
+    
+}
 
 function seleccionarMascotaJugador () {
     let input1 = document.getElementById (`mascota-1`);
@@ -365,6 +383,7 @@ function combateDeElementos () {
         }
     }
 }
+// Gano cuando uso fuego contra tierra o uso tierra contra agua o si uso agua contra fuego.
 
 function revisarVidas () {
     if (vidaPc <= 0) {
@@ -479,3 +498,7 @@ mascotasEleccion.forEach ((mascota) => {
     registroDeDebTierra.push (mascota.debTierra);  
     }
 )
+
+
+
+
