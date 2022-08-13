@@ -19,16 +19,20 @@
             <h1>Proyecto 3 (juego)</h1>
         </nav><br><br><br>
         <main>
-            <h1>Juego de ataque por elementos 🔥💧☘</h1>
-            <p>
-                Este es un proyecto de videojuego que en la fecha aún no funciona. <br>Se trata de un juego en donde hay que elegir una mascota entre 6 (seis) mascotas. <br>Cada mascota tiene un elemento definido.<br> El usuario podrá elegir libremente o con la opción de "Aletorio" podrá dejar que el azar eliga.
-            </p><br><br><br><br><br>
+            <h1>Juego de ataque por elementos 🔥💧☘</h1><br>
+            
         </main>
     </header>
     <body class = "h-101 text-center text-bg-dark">
         <section>
-            <section id = "ocultar-menu-mascotas">
+            <section id = "section-main">
+                <p>
+                Este es un proyecto de videojuego que en la fecha aún no funciona. <br>Se trata de un juego en donde hay que elegir una mascota entre 6 (seis) mascotas. <br>Cada mascota tiene un elemento definido.<br> El usuario podrá elegir libremente o con la opción de "Aletorio" podrá dejar que el azar eliga.
+                </p><br><br><br><br><br>
                 <h2>Elige a tú mascota que quieres que luche:</h2><br>
+            </section>
+            
+            <section id = "ocultar-menu-mascotas">
                 <form name = "seleccionar-mascota">
                     <div class="container-lg .gy-4 themed-container text-center">
                         <label for = "mascota-1">Mascota 1</label>
@@ -54,66 +58,61 @@
                         <label for = "mascota-6">Mascota 6</label>
                     </div>
                     <input type = "radio" style ="display: none" name = "mascota" id = "mascota-6" />
-                </form>
-            </section><br>
-            <section>
-                <p>
+                </form><br>
+                <p id = "section-main2">
                     <span id = "botones-requisito-seleccion">
                         <button type="button" id = "seleccionar-mascota-jugador" class="btn btn-primary" disabled>Select</button>
                         <button type="button" id = "seleccionar-mascota-jugador-aleatorio" class="btn btn-secondary btn-sm">Random</button>
                     </span>
                 </p> 
             </section>
+        </section>
+        <section id = "section-ataque" style = "display: none">
+            <br>
+            <p>
+                <span id = "trampa"><br><br><br><br></span>
+            </p>
             <p><br>
                 Tú mascota (<b><span id = "nombre-mascota-jugador">Jugador debe seleccionar su mascota</span></b>) tiene <b><span id = "span-vida-jugador">0</span></b> de vida.
             </p>
             <p>La mascota del contrincante PC (<b><span id = "nombre-mascota-pc" >Esperando que el jugador seleccione primero...</span></b>) tiene <b><span id = "span-vida-pc">0</span></b> de vida.
             </p>
-        </section>
-        <section><br>
-            <p>
-                <span id = "trampa"><br><br><br><br></span>
-            </p>
-        </section>
-        <section id = "seleccionar-ataque">
-            <h2>Elige atacar con tú mascota:</h2>
-            <p>
+            <section id = "seleccionar-ataque">
+                <h2>Elige atacar con tú mascota:</h2>
                 <p>
-                    <span id = "botones-para-atacar"><br><br><br></span>
+                    <p>
+                        <span id = "botones-para-atacar"><br><br><br></span>
+                    </p>
                 </p>
-            </p>
+            </section>
+            <section>
+                <p>Tú mascota atacó con <b><span id = "span-elementos-jugador">Elemento de mascota seleccionada por el Jugador</span></b>. <br>La mascota contraria atacó con <b><span id = "span-elementos-enemigo">Elemento de mascota seleccionada por la PC</span></b>.</p>
+                <h2><br><br>
+                    Resultado del combate:
+                </h2>
+            </section>
+            <section id = "mensajes">
+                <span> Historial de ataques...</span></p>
+            </section>
         </section>
-        <section>
-            <p>Tú mascota atacó con <b><span id = "span-elementos-jugador">Elemento de mascota seleccionada por el Jugador</span></b>. <br>La mascota contraria atacó con <b><span id = "span-elementos-enemigo">Elemento de mascota seleccionada por la PC</span></b>.</p>
-        </section> 
-        <section>
-            <h2><br><br>
-                Resultado del combate:
-            </h2>
-        </section>
-        <section id = "mensajes">
-            <span> Historial de ataques...</span></p>
-        </section>
-        <section>
+        <section id = "reiniciará"  style = "visibility: hidden;">
             <h2><br><br>
                 ¿Perdiste o ganaste el combate?
             </h2>
-        </section>
-        <section id = "reiniciará">
             <p><br>
                 <button type="button" id = "boton-reiniciar" class="btn btn-primary btn-lg">Reiniciar</button>
             </p>
         </section>
-        <section> 
-            <p><br><br><br><br>
-                <span id = "span-info-elementos-mascotas"><br><br><br><br><br><br><br></span>
-            </p>
-            <button onclick= infoMascotas() type="button" class="btn btn-link"><span id = "atras-info">Presiona para saber elementos de las mascotas...</span></button>
-            <button type="button" id = "trampa-2" onclick = trampa() class="btn btn-outline-dark">...</button>
-        </section>
+
+        
         <footer>
+            <section> 
+                
+                
+                <button type="button" id = "trampa-2" onclick = trampa() class="btn btn-outline-dark">...</button>
+            </section>
             <section>
-                <br><br><br>
+                <br><br>
                 <p>
                     <b><span id = "fecha-de-hoy"></span></b>
                 </p>
